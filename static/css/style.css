@@ -1,13 +1,18 @@
 /* === Background Setup === */
 body {
   background: url("../media/Background.webp") no-repeat center center fixed;
-  background-color: lightblue;
+  background-color: #36454F; /* Fallback color */
   background-size: cover;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
   color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+  padding-top: 100px;
 }
 
 /* === Frosted Glass Effect === */
@@ -22,56 +27,121 @@ body {
   color: #ffffff;
 }
 
-/* === Logo Link & Hover Effects === */
-.logo-link {
+/* === Navbar Setup === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(33, 37, 41, 0.75); /* fallback for bg-opacity */
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+/* === Navbar Container Flex Layout === */
+.container-fluid {
   position: relative;
-  display: inline-block;
-  z-index: 2;
-  overflow: hidden;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.logo-img {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  top: -10px;
-  display: block;
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Hover Effect: Scale + Rotate + Shadow */
-.logo-link:hover .logo-img {
-  transform: scale(1.15) rotate(-2deg);
-}
-
-/* Ripple Overlay */
-.logo-link::after {
-  content: '';
+/* === Logo Wrapper (Overlapping) === */
+.navbar-logo-wrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
+  top: -40px;
+  left: 1rem;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+}
+
+/* === Logo Image === */
+.logo-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
   border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.5s ease, opacity 0.6s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
-.logo-link:hover::after {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
+/* === Logo Hover Effect (Twist + Scale) === */
+.logo-link:hover .logo-img {
+  transform: scale(1.15) rotate(-3deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* === Responsive Adjustments === */
+/* === Navbar Collapse Styling === */
+.navbar-collapse {
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* === Toggler Override to Prevent Overlap === */
+.navbar-toggler {
+  z-index: 1100;
+  margin-left: auto;
+}
+
+/* Base link style */
+.glow-link {
+  color: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Link 1: Blue glow */
+.glow-blue:hover {
+  color: #009BF8;
+  text-shadow: 0 0 6px rgba(0, 120, 230, 0.8);
+}
+
+/* Link 2: magenta glow */
+.glow-magenta:hover {
+  color: #D503CB;
+  text-shadow: 0 0 6px rgba(213, 3, 200, 0.8);
+}
+
+/* Link 3: orange glow */
+.glow-orange:hover {
+  color: #F87000;
+  text-shadow: 0 0 6px rgba(248, 112, 0, 0.8);
+}
+
+/* Link 4: green */
+.glow-green:hover {
+  color: #00C27C;
+  text-shadow: 0 0 6px rgba(0, 194, 124, 0.8);
+}
+
+/* === Mobile Styles === */
 @media (max-width: 768px) {
   .logo-img {
-    width: 60px;
-    height: 60px;
-    top: -5px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .navbar-logo-wrapper {
+    top: -25px;
+    left: 1rem;
+    transform: none;
+  }
+
+  .navbar-collapse {
+    margin-top: 60px;
   }
 }

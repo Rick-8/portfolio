@@ -17,35 +17,39 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
         <div class="container-fluid">
-            <a href="/" class="navbar-brand logo-link" aria-label="Rick-8 Home">
-                <img src="{% static 'media/rick-8-multi.webp' %}" alt="Rick-8 Logo" class="logo-img" width="40"
-                    height="40" loading="lazy" />
-            </a>
+
+            <!-- Logo -->
+            <div class="navbar-logo-wrapper">
+                <a href="/" class="logo-link" aria-label="Rick-8 Home">
+                    <img src="{% static 'media/rick-8-multi.webp' %}" alt="Rick-8 Logo" class="logo-img"
+                        loading="lazy" />
+                </a>
+            </div>
+
+            <!-- Menu Toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
                 aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Contact</a>
-                    </li>
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link glow-link glow-blue" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link glow-link glow-magenta" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link glow-link glow-orange" href="#">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link glow-link glow-green" href="#">Contact</a></li>
                 </ul>
             </div>
+
         </div>
     </nav>
+
+
+
+
 
     <!-- Main Content -->
     <main class="container my-5">
