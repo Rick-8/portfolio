@@ -1,0 +1,77 @@
+/* === Background Setup === */
+body {
+  background: url("../media/Background.webp") no-repeat center center fixed;
+  background-color: lightblue;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* === Frosted Glass Effect === */
+.glass-container {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+/* === Logo Link & Hover Effects === */
+.logo-link {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -10px;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover Effect: Scale + Rotate + Shadow */
+.logo-link:hover .logo-img {
+  transform: scale(1.15) rotate(-2deg);
+}
+
+/* Ripple Overlay */
+.logo-link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.6s ease;
+}
+
+.logo-link:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .logo-img {
+    width: 60px;
+    height: 60px;
+    top: -5px;
+  }
+}
